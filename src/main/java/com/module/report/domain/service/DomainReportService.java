@@ -43,7 +43,7 @@ public class DomainReportService implements ReportService {
     public void setup() throws ClassNotFoundException {
         var rated = Rating.getLabelValue();
         filters.put("rated", new Filter("Rate", "rated", TypeFilter.ENUM, new ArrayList<>(rated)));
-        filters.put("genres", new Filter("Genero(s)", "genres", TypeFilter.String, new ArrayList<>()));
+        filters.put("genres", new Filter("Genero(s)", "genres", TypeFilter.STRING, new ArrayList<>()));
 
         var provider = new ClassPathScanningCandidateComponentProvider(false);
         provider.addIncludeFilter(new AnnotationTypeFilter(ReportClass.class));
