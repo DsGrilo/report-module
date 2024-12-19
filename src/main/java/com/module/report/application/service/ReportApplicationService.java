@@ -14,7 +14,7 @@ import java.util.List;
 public class ReportApplicationService {
     private final ReportService reportService;
 
-    public List<com.module.report.application.dto.response.report.ResponseTypesReportDTO> getReports() {
+    public List<ResponseTypesReportDTO> getReports() {
         var reports = reportService.getReports().stream();
         return reports.map($ -> new ResponseTypesReportDTO(
                 $.getName(),

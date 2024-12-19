@@ -12,14 +12,13 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 @Getter
 public enum CategoryReport {
-    DEFAULT("Geral"), CLIENT("Cliente");
-
+    DEFAULT("Geral");
 
     private final String label;
 
     public static List<EnumType> getLabelValue() {
         return Stream.of(Grouper.values())
-                .map(enumType -> new EnumType(enumType.name(), enumType.getLabel()))
+                .map(enumType -> new EnumType(enumType.name()))
                 .collect(Collectors.toList());
     }
 }

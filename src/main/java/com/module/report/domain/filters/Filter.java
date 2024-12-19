@@ -8,8 +8,8 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 public class Filter {
-    private String name; //Forma de Pagamento, Dispositivos
-    private String key; //paymentMethod, device
+    private String name;
+    private String key;
     private TypeFilter type;
     private List<Object> dataFilter;
 

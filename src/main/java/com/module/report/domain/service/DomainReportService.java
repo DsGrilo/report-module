@@ -12,8 +12,7 @@ import com.module.report.domain.exception.ReportNotFoundException;
 import com.module.report.domain.filters.EnumType;
 import com.module.report.domain.filters.Filter;
 import com.module.report.domain.filters.TypeFilter;
-import com.module.report.domain.filters.enums.Gender;
-import com.module.report.domain.filters.enums.State;
+import com.module.report.domain.filters.enums.Rating;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -42,15 +41,13 @@ public class DomainReportService implements ReportService {
 
     @PostConstruct
     public void setup() throws ClassNotFoundException {
-        var gender = Gender.getLabelValue();
-        filters.put("gender", new Filter("Gênero", "gender", TypeFilter.ENUM, new ArrayList<>(gender)));
-
-        var enumState = State.getLabelValue();
-        filters.put("UF", new Filter("Estado", "UF", TypeFilter.ENUM, new ArrayList<>(enumState)));
+        var rated = Rating.getLabelValue();
+        filters.put("rated", new Filter("Rate", "rated", TypeFilter.ENUM, new ArrayList<>(rated)));
+        filters.put("genres", new Filter("Genero(s)", "genres", TypeFilter.String, new ArrayList<>()));
 
         var provider = new ClassPathScanningCandidateComponentProvider(false);
         provider.addIncludeFilter(new AnnotationTypeFilter(ReportClass.class));
-        for (var candidateComponent : provider.findCandidateComponents("br.com.module.report")) {
+        for (var candidateComponent : provider.findCandidateComponents("com/module/report/domain/handlers")) {
             var aClass = Class.forName(candidateComponent.getBeanClassName());
             var queryAnnotation = aClass.getAnnotation(ReportClass.class);
             var fields = aClass.getFields();
@@ -74,7 +71,7 @@ public class DomainReportService implements ReportService {
                     .map(name -> {
                         try {
                             Grouper grouper = Grouper.valueOf(name.toUpperCase());
-                            return new EnumType(grouper.name(), grouper.getLabel());
+                            return new EnumType(grouper.name());
                         } catch (IllegalArgumentException e) {
                             return null;
                         }
@@ -107,6 +104,7 @@ public class DomainReportService implements ReportService {
     @Override
     public ResponseReportDTO generateReport(RequestCreateReportDTO dto) {
         var report = handlers.stream().filter($ -> $.getType().equals(dto.type())).findFirst().orElse(null);
+
         if (report == null) {
             throw new ReportNotFoundException();
         }
@@ -117,7 +115,7 @@ public class DomainReportService implements ReportService {
         }
 
 
-        List<Document> aggregationPipeline = reportEntity.buildAggregation(dto.filters(), dto.grouper());
+        List<Document> aggregationPipeline = reportEntity.buildAggregation(dto.filters() == null ? new HashMap<>() : dto.filters(), dto.grouper());
 
         if (report.isUseDate())
             addDateSearch(report, dto.startDate(), dto.endDate(), aggregationPipeline);

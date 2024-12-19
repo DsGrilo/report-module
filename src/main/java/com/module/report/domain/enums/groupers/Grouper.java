@@ -21,7 +21,7 @@ public enum Grouper {
 
     public static List<EnumType> getLabelValue() {
         return Stream.of(Grouper.values())
-                .map(enumType -> new EnumType(enumType.name(), enumType.getLabel()))
+                .map(enumType -> new EnumType(enumType.name()))
                 .collect(Collectors.toList());
     }
 }
