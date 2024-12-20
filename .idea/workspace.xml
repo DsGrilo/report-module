@@ -5,7 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8768eed7-bbe9-4217-bd2c-c81064c50b69" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/module/report/domain/handlers/movies/ReportMovies2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/module/security/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Pagination.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Pagination.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ReportTable.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ReportTable.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/context/ReportSelectedContext.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useFetchData.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useFetchReport.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/usePagination.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/module/report/ReportApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/module/report/ReportApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/module/report/application/controller/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/module/report/application/controller/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/eslint.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/react.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/vite-env.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.node.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vite.config.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +77,14 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JSX File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -59,27 +96,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build report-module.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.report-module [build].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ReportApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build report-module.executor": "Run",
+    "Gradle.report-module [build].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.ReportApplication.executor": "Debug",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Grilo/Documents/GitHub/report-module/frontend/src/hooks",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.2.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -89,7 +130,15 @@
       </map>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Grilo\Documents\GitHub\report-module\frontend\src\hooks" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Grilo\Documents\GitHub\report-module\frontend\src\pages\Report" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.dev">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -140,6 +189,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/frontend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -157,7 +221,8 @@
       <option name="presentableId" value="Default" />
       <updated>1734622255338</updated>
       <workItem from="1734622257109" duration="9371000" />
-      <workItem from="1734659734000" duration="146000" />
+      <workItem from="1734659734000" duration="1176000" />
+      <workItem from="1734661076115" duration="19398000" />
     </task>
     <servers />
   </component>

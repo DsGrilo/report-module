@@ -1,0 +1,65 @@
+.header {
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 10px;
+    width: 100%;
+}
+
+
+.h1 {
+    display: flex;
+}
+
+.headerSelect {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.headerSelect select {
+    border-radius: 7px;
+    border: 2px solid black;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: transparent;
+}
+
+.headerSelect span {
+    font-size: 20px;
+}
+
+.header button {
+    margin-right: auto;
+}
+
+
+.report {
+    margin-top: 1rem;
+    border-radius: 7px;
+    border: 1px solid black;
+    padding: 0.5rem;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 0.8rem 10px;
+    text-align: center;
+    border: 1px solid #ddd; /* Melhor visibilidade das células */
+}
+
+.table th {
+    font-weight: bold;
+}
+
+.table td {
+    word-wrap: break-word; /* Impede que textos muito longos saiam da célula */
+}
+
+.table tr:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Efeito de hover nas linhas */
+}

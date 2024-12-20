@@ -1,0 +1,32 @@
+.paginationContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.paginationItem {
+    padding: 0.6rem 1rem;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.paginationItem:hover {
+    background-color: #ddd;
+}
+
+.selected {
+    background-color: #007bff;
+    color: gray;
+}
+
+.disabled {
+    cursor: not-allowed;
+}
+
+.paginationItem:disabled {
+    background-color: lightgray;
+}

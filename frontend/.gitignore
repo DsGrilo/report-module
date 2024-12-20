@@ -16,16 +16,9 @@ dist-ssr
 .vscode/*
 !.vscode/extensions.json
 .idea
-.idea/*
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/dictionaries
-.idea/vcs.xml
-.idea/jsLibraryMappings.xml
