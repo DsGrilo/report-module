@@ -15,6 +15,8 @@ export const ReportTable = () => {
     const [columns, setColumns] = useState([]);
     const [values, setValues] = useState([]);
 
+    const [sortColumn, setSortColumn] = useState(null);
+    const [sortOrder, setSortOrder] = useState('asc');
     const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
@@ -29,10 +31,36 @@ export const ReportTable = () => {
         }
     }, [reports ])
 
-    const currentTableData = useMemo(() => {
+    const handleSort = (columnKey) => {
+        const nextOrder = sortColumn === columnKey && sortOrder === 'asc' ? 'desc' : 'asc';
+        setSortColumn(columnKey);
+        setSortOrder(nextOrder);
+
+        setValues((prevValues) => {
+            const sortedValues = [...prevValues];
+
+            sortedValues.sort((a, b) => {
+                const valueA = a[columnKey];
+                const valueB = b[columnKey];
+
+                if (valueA === valueB) return 0;
+
+                if (nextOrder === 'asc') {
+                    return valueA > valueB ? 1 : -1;
+                } else {
+                    return valueA < valueB ? 1 : -1;
+                }
+            });
+            return sortedValues;
+        });
+    };
+
+
+    const currentPaginatedTableData = useMemo(() => {
+        if (!Array.isArray(values)) return [];
         const firstPageIndex = (currentPage - 1) * PageSize;
         const lastPageIndex = firstPageIndex + PageSize;
-        return values?.slice(firstPageIndex, lastPageIndex);
+        return values.slice(firstPageIndex, lastPageIndex);
     }, [currentPage, values]);
 
     return (
@@ -58,19 +86,24 @@ export const ReportTable = () => {
                     <tr>
                         {columns &&
                             columns.map((column) => (
-                                <th key={column.key}>{column.name}</th>
+                                <th key={column.key}
+                                    style={{cursor: 'pointer'}}
+                                    onClick={() => handleSort(column.index)}
+                                >
+                                    {column.name} {sortColumn === column.index ? (sortOrder === 'asc' ? '↑' : '↓') : ''}
+                                </th>
                             ))}
                     </tr>
                     </thead>
                     <tbody>
                     {
                         (error || errorData) ? (
-                            <h1>Erro ao gerar relatorio ...</h1>
-                        ) :
+                                <h1>Erro ao gerar relatorio </h1>
+                            ) :
                             (loading || loadingData) ? (
                                 <h1>Carregando ...</h1>
                             ) : (
-                                currentTableData && currentTableData.map((report, index) => (
+                                currentPaginatedTableData && currentPaginatedTableData.map((report, index) => (
                                     <tr key={index}>
                                         { columns.map((col, colIndex) => (
                                             <td key={colIndex}>
