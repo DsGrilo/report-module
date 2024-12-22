@@ -35,6 +35,7 @@
 
 
 .report {
+    width: 100%;
     margin-top: 1rem;
     border-radius: 7px;
     border: 1px solid black;
