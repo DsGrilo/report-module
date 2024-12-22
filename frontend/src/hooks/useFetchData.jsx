@@ -1,22 +1,23 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 export const useFetchData = (
     type,
-    filters
+    filters = {}
 ) => {
     const URL = "http://localhost:8080/report";
-
-    const [ data, setData ] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState({});
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        fetch(URL, {
+    const fetchData = async () => {
+        setLoading(true);
+
+        await fetch(URL, {
             method: 'POST',
-            body: {
+            body: JSON.stringify({
                 type,
-                filters
-            },
+                filters,
+            }),
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -36,8 +37,8 @@ export const useFetchData = (
                 setError(error.message);
                 setLoading(false);
             });
-    }, [URL]);
+    }
 
 
-    return { data, loading, error };
+    return { data, loading, error, fetchData };
 }

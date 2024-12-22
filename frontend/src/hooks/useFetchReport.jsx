@@ -4,10 +4,11 @@ export const useFetchReport = () => {
     const URL = "http://localhost:8080/report";
 
     const [ reports, setReports ] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        setLoading(true);
         fetch(URL, {
             method: 'GET',
             headers: {
